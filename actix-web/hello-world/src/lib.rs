@@ -8,8 +8,7 @@ async fn hello_world() -> &'static str {
 #[cyndra_service::main]
 async fn actix_web(
 ) -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Sync + Send + Copy + Clone + 'static> {
-    let h = hello_world;
     Ok(move |cfg: &mut ServiceConfig| {
-        cfg.service(resource("/hello").to(h));
+        cfg.service(resource("/hello").to(hello_world));
     })
 }
