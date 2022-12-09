@@ -8,6 +8,6 @@ edition = "2021"
 [dependencies]
 poem = "1.3.49"
 serde = "1.0.148"
-cyndra-service = { version = "0.7.2", features = ["web-poem"] }
-cyndra-shared-db = { version = "0.7.2", features = ["postgres"] }
+cyndra-service = { version = "0.8.0", features = ["web-poem"] }
+cyndra-shared-db = { version = "0.8.0", features = ["postgres"] }
 sqlx = { version = "0.6.2", features = ["runtime-tokio-native-tls", "postgres"] }
