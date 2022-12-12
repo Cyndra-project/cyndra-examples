@@ -1,0 +1,13 @@
+[package]
+name = "postgres"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+
+[dependencies]
+actix-web = "4.2.1"
+serde = "1.0.148"
+cyndra-service = { version = "0.8.0", features = ["web-actix-web"] }
+cyndra-shared-db = { version = "0.8.0", features = ["postgres"] }
+sqlx = { version = "0.6.2", features = ["runtime-tokio-native-tls", "postgres"] }
