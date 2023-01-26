@@ -29,7 +29,7 @@ struct State {
 }
 
 const PAUSE_SECS: u64 = 15;
-const STATUS_URI: &str = "https://api.cyndra.rs/status";
+const STATUS_URI: &str = "https://api.cyndra.rs";
 
 #[derive(Serialize)]
 struct Response {
