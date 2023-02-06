@@ -1,0 +1,12 @@
+[package]
+name = "static-next-server"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+axum = "0.6.1"
+axum-extra = { version = "0.4.2", features = ["spa"] }
+cyndra-service = { version = "0.9.0", features = ["web-axum"] }
+cyndra-static-folder = "0.9.0"
+sync_wrapper = "0.1.1"
