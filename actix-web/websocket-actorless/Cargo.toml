@@ -8,7 +8,7 @@ publish = false
 
 [dependencies]
 cyndra-service = { version = "0.11.0", features = ["web-actix-web"] }
-cyndra-static-folder = "0.11.0"
+cyndra-static-folder = "0.11.3"
 actix-web = "4.2.1"
 actix-ws = "0.2.5"
 actix-files = "0.6.2"
