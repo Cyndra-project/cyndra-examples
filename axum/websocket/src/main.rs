@@ -15,8 +15,7 @@ use futures::{SinkExt, StreamExt};
 use hyper::{Client, Uri};
 use hyper_tls::HttpsConnector;
 use serde::Serialize;
-use cyndra_service::CyndraAxum;
-use sync_wrapper::SyncWrapper;
+use cyndra_axum::CyndraAxum;
 use tokio::{
     sync::{watch, Mutex},
     time::sleep,
@@ -39,8 +38,8 @@ struct Response {
     is_up: bool,
 }
 
-#[cyndra_service::main]
-async fn main(#[cyndra_static_folder::StaticFolder] static_folder: PathBuf) -> CyndraAxum {
+#[cyndra_runtime::main]
+async fn axum(#[cyndra_static_folder::StaticFolder] static_folder: PathBuf) -> CyndraAxum {
     let (tx, rx) = watch::channel(Message::Text("{}".to_string()));
 
     let state = Arc::new(Mutex::new(State {
@@ -82,9 +81,7 @@ async fn main(#[cyndra_static_folder::StaticFolder] static_folder: PathBuf) -> C
         .fallback_service(serve_dir)
         .layer(Extension(state));
 
-    let sync_wrapper = SyncWrapper::new(router);
-
-    Ok(sync_wrapper)
+    Ok(router.into())
 }
 
 async fn handle_error(_err: std::io::Error) -> impl IntoResponse {

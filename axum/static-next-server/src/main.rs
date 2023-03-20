@@ -2,16 +2,13 @@ use std::path::PathBuf;
 
 use axum::Router;
 use axum_extra::routing::SpaRouter;
-use sync_wrapper::SyncWrapper;
 
-#[cyndra_service::main]
+#[cyndra_runtime::main]
 async fn axum(
     #[cyndra_static_folder::StaticFolder] static_folder: PathBuf,
-) -> cyndra_service::CyndraAxum {
+) -> cyndra_axum::CyndraAxum {
     let router =
         Router::new().merge(SpaRouter::new("/", static_folder).index_file("index.html"));
 
-    let sync_wrapper = SyncWrapper::new(router);
-
-    Ok(sync_wrapper)
+    Ok(router.into())
 }

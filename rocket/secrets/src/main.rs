@@ -15,10 +15,10 @@ struct MyState {
     secret: String,
 }
 
-#[cyndra_service::main]
+#[cyndra_runtime::main]
 async fn rocket(
     #[cyndra_secrets::Secrets] secret_store: SecretStore,
-) -> cyndra_service::CyndraRocket {
+) -> cyndra_rocket::CyndraRocket {
     // get secret defined in `Secrets.toml` file.
     let secret = if let Some(secret) = secret_store.get("MY_API_KEY") {
         secret
@@ -29,5 +29,5 @@ async fn rocket(
     let state = MyState { secret };
     let rocket = rocket::build().mount("/", routes![secret]).manage(state);
 
-    Ok(rocket)
+    Ok(rocket.into())
 }

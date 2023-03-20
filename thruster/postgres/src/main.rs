@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use cyndra_service::error::CustomError;
+use cyndra_runtime::CustomError;
 use sqlx::{Executor, FromRow, PgPool};
 use thruster::{
     context::{
@@ -96,17 +96,19 @@ async fn add(mut context: Ctx, _next: MiddlewareNext<Ctx>) -> MiddlewareResult<C
     Ok(context)
 }
 
-#[cyndra_service::main]
+#[cyndra_runtime::main]
 async fn thruster(
     #[cyndra_aws_rds::Postgres] pool: PgPool,
-) -> cyndra_service::CyndraThruster<HyperServer<Ctx, ServerConfig>> {
+) -> cyndra_thruster::CyndraThruster<HyperServer<Ctx, ServerConfig>> {
     pool.execute(include_str!("../schema.sql"))
         .await
         .map_err(CustomError::new)?;
 
-    Ok(HyperServer::new(
+    let server = HyperServer::new(
         App::<HyperRequest, Ctx, ServerConfig>::create(generate_context, ServerConfig { pool })
             .post("/todos", m![add])
             .get("/todos/:id", m![retrieve]),
-    ))
+    );
+    
+    Ok(server.into())
 }

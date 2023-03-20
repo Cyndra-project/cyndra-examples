@@ -9,9 +9,11 @@ async fn hello(mut context: Ctx, _next: MiddlewareNext<Ctx>) -> MiddlewareResult
     Ok(context)
 }
 
-#[cyndra_service::main]
-async fn thruster() -> cyndra_service::CyndraThruster<HyperServer<Ctx, ()>> {
-    Ok(HyperServer::new(
+#[cyndra_runtime::main]
+async fn thruster() -> cyndra_thruster::CyndraThruster<HyperServer<Ctx, ()>> {
+    let server = HyperServer::new(
         App::<HyperRequest, Ctx, ()>::create(generate_context, ()).get("/hello", m![hello]),
-    ))
+    );
+    
+    Ok(server.into())
 }

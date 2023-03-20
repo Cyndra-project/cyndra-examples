@@ -5,7 +5,7 @@ use rocket::response::status::BadRequest;
 use rocket::serde::json::Json;
 use rocket::State;
 use serde::{Deserialize, Serialize};
-use cyndra_service::error::CustomError;
+use cyndra_runtime::CustomError;
 use sqlx::{Executor, FromRow, PgPool};
 
 #[get("/<id>")]
@@ -37,8 +37,8 @@ struct MyState {
     pool: PgPool,
 }
 
-#[cyndra_service::main]
-async fn rocket(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_service::CyndraRocket {
+#[cyndra_runtime::main]
+async fn rocket(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_rocket::CyndraRocket {
     pool.execute(include_str!("../schema.sql"))
         .await
         .map_err(CustomError::new)?;
@@ -48,7 +48,7 @@ async fn rocket(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_service::C
         .mount("/todo", routes![retrieve, add])
         .manage(state);
 
-    Ok(rocket)
+    Ok(rocket.into())
 }
 
 #[derive(Deserialize)]

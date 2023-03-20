@@ -1,9 +1,9 @@
-#[cyndra_service::main]
-async fn tide() -> cyndra_service::CyndraTide<()> {
+#[cyndra_runtime::main]
+async fn tide() -> cyndra_tide::CyndraTide<()> {
     let mut app = tide::new();
     app.with(tide::log::LogMiddleware::new());
 
     app.at("/hello").get(|_| async { Ok("Hello, world!") });
 
-    Ok(app)
+    Ok(app.into())
 }

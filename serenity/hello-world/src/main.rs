@@ -23,10 +23,10 @@ impl EventHandler for Bot {
     }
 }
 
-#[cyndra_service::main]
+#[cyndra_runtime::main]
 async fn serenity(
     #[cyndra_secrets::Secrets] secret_store: SecretStore,
-) -> cyndra_service::CyndraSerenity {
+) -> cyndra_serenity::CyndraSerenity {
     // Get the discord token set in `Secrets.toml`
     let token = if let Some(token) = secret_store.get("DISCORD_TOKEN") {
         token
@@ -42,5 +42,5 @@ async fn serenity(
         .await
         .expect("Err creating client");
 
-    Ok(client)
+    Ok(client.into())
 }

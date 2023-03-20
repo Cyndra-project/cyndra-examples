@@ -50,14 +50,14 @@ async fn retrieve(
     Ok(Json(weather))
 }
 
-#[cyndra_service::main]
+#[cyndra_runtime::main]
 async fn rocket(
     #[cyndra_persist::Persist] persist: PersistInstance,
-) -> cyndra_service::CyndraRocket {
+) -> cyndra_rocket::CyndraRocket {
     let state = MyState { persist };
     let rocket = rocket::build()
         .mount("/", routes![retrieve, add])
         .manage(state);
 
-    Ok(rocket)
+    Ok(rocket.into())
 }

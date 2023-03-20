@@ -1,5 +1,6 @@
 use serde::{Deserialize, Serialize};
-use cyndra_service::{error::CustomError, CyndraTide};
+use cyndra_runtime::{CustomError};
+use cyndra_tide::CyndraTide;
 use sqlx::{Executor, FromRow, PgPool};
 use tide::{Body, Request};
 
@@ -28,7 +29,7 @@ struct MyState {
     pool: PgPool,
 }
 
-#[cyndra_service::main]
+#[cyndra_runtime::main]
 async fn tide(#[cyndra_aws_rds::Postgres] pool: PgPool) -> CyndraTide<MyState> {
     pool.execute(include_str!("../schema.sql"))
         .await
@@ -41,7 +42,7 @@ async fn tide(#[cyndra_aws_rds::Postgres] pool: PgPool) -> CyndraTide<MyState> {
     app.at("/todo").post(add);
     app.at("/todo/:id").get(retrieve);
 
-    Ok(app)
+    Ok(app.into())
 }
 
 #[derive(Deserialize)]

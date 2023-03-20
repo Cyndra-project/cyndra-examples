@@ -10,6 +10,7 @@ use poem::{
     EndpointExt, FromRequest, Request, RequestBody, Result, Route,
 };
 use serde::{Deserialize, Serialize};
+use cyndra_poem::CyndraPoem;
 
 struct ObjectIdGuard(ObjectId);
 
@@ -53,10 +54,10 @@ async fn add(Json(todo): Json<Todo>, collection: Data<&Collection<Todo>>) -> Res
         .to_string())
 }
 
-#[cyndra_service::main]
-async fn main(
+#[cyndra_runtime::main]
+async fn poem(
     #[cyndra_shared_db::MongoDb] db: Database,
-) -> cyndra_service::CyndraPoem<impl poem::Endpoint> {
+) -> CyndraPoem<impl poem::Endpoint> {
     let collection = db.collection::<Todo>("todos");
 
     let app = Route::new()
@@ -64,7 +65,7 @@ async fn main(
         .at("/todo/:id", get(retrieve))
         .with(AddData::new(collection));
 
-    Ok(app)
+    Ok(app.into())
 }
 
 #[derive(Debug, Serialize, Deserialize)]

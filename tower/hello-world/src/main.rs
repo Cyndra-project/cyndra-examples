@@ -28,7 +28,9 @@ impl tower::Service<hyper::Request<hyper::Body>> for HelloWorld {
     }
 }
 
-#[cyndra_service::main]
-async fn tower() -> Result<HelloWorld, cyndra_service::Error> {
-    Ok(HelloWorld)
+#[cyndra_runtime::main]
+async fn tower() -> cyndra_tower::CyndraTower<HelloWorld> {
+    let service = HelloWorld;
+
+    Ok(service.into())
 }

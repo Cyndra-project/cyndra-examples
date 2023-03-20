@@ -7,7 +7,7 @@ use rocket::{
     routes, State,
 };
 use serde::Serialize;
-use cyndra_service::{error::CustomError, CyndraRocket};
+use cyndra_runtime::CustomError;
 use sqlx::migrate::Migrator;
 use sqlx::{FromRow, PgPool};
 use url::Url;
@@ -70,8 +70,8 @@ async fn shorten(url: String, state: &State<AppState>) -> Result<String, status:
 
 static MIGRATOR: Migrator = sqlx::migrate!();
 
-#[cyndra_service::main]
-async fn rocket(#[cyndra_shared_db::Postgres] pool: PgPool) -> CyndraRocket {
+#[cyndra_runtime::main]
+async fn rocket(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_rocket::CyndraRocket {
     MIGRATOR.run(&pool).await.map_err(CustomError::new)?;
 
     let state = AppState { pool };
@@ -79,5 +79,5 @@ async fn rocket(#[cyndra_shared_db::Postgres] pool: PgPool) -> CyndraRocket {
         .mount("/", routes![redirect, shorten])
         .manage(state);
 
-    Ok(rocket)
+    Ok(rocket.into())
 }

@@ -69,9 +69,9 @@ fn login(login: Json<LoginRequest>) -> Result<Json<LoginResponse>, Custom<String
     Ok(Json(response))
 }
 
-#[cyndra_service::main]
-async fn rocket() -> cyndra_service::CyndraRocket {
+#[cyndra_runtime::main]
+async fn rocket() -> cyndra_rocket::CyndraRocket {
     let rocket = rocket::build().mount("/", routes![public, private, login]);
 
-    Ok(rocket)
+    Ok(rocket.into())
 }
