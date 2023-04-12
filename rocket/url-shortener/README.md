@@ -31,31 +31,31 @@ The project consists of the following files
 To deploy this app, check out the repository locally
 
 ```bash
-$ git clone https://github.com/cyndra-hq/cyndra.git
+git clone https://github.com/cyndra-hq/cyndra.git
 ```
 
 navigate to `examples/rocket/url-shortener`
 
 ```bash
-$ cd examples/rocket/url-shortener
+cd examples/rocket/url-shortener
 ```
 
 install cyndra
 
 ```bash
-$ cargo install cargo-cyndra
+cargo install cargo-cyndra
 ```
 
 login to cyndra
 
 ```bash
-$ cargo cyndra login
+cargo cyndra login
 ```
 
 Pick a project name that is something unique - in cyndra,
 projects are globally unique. Then run
 
 ```bash
-$ cargo cyndra project new --name=$PROJECT_NAME
-$ cargo cyndra deploy --name=$PROJECT_NAME
+cargo cyndra project start --name=$PROJECT_NAME
+cargo cyndra deploy --name=$PROJECT_NAME
 ```
