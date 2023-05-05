@@ -7,7 +7,7 @@ Some example apps to show what you can do with cyndra.
 To deploy the examples, check out the repository locally
 
 ```bash
-git clone https://github.com/cyndra-hq/examples.git
+git clone https://github.com/cyndra-hq/cyndra-examples.git
 ```
 
 navigate to an example root folder
