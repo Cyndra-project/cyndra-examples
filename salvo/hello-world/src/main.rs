@@ -7,7 +7,7 @@ async fn hello_world(res: &mut Response) {
 
 #[cyndra_runtime::main]
 async fn salvo() -> cyndra_salvo::CyndraSalvo {
-    let router = Router::with_path("hello").get(hello_world);
+    let router = Router::new().get(hello_world);
 
     Ok(router.into())
 }

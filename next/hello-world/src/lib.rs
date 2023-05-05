@@ -5,7 +5,7 @@ cyndra_next::app! {
     use cyndra_next::extract::BodyStream;
     use cyndra_next::response::{Response, IntoResponse};
 
-    #[cyndra_next::endpoint(method = get, route = "/hello")]
+    #[cyndra_next::endpoint(method = get, route = "/")]
     async fn hello() -> &'static str {
         "Hello, World!"
     }
