@@ -1,10 +1,17 @@
+use std::sync::Arc;
+
 use axum::Router;
-use cyndra_secrets::SecretStore;
+use cyndra_persist::PersistInstance;
 
 mod router;
 
 pub struct CrontabService {
     router: Router,
+    persist: PersistInstance,
+}
+
+pub struct AppState {
+    persist: PersistInstance,
 }
 
 #[cyndra_runtime::async_trait]
@@ -25,9 +32,12 @@ impl cyndra_runtime::Service for CrontabService {
 
 #[cyndra_runtime::main]
 async fn init(
-    #[cyndra_secrets::Secrets] _secrets: SecretStore,
+    #[cyndra_persist::Persist] persist: PersistInstance,
 ) -> Result<CrontabService, cyndra_runtime::Error> {
-    let router = router::build_router();
+    let app_state = Arc::new(AppState {
+        persist: persist.clone(),
+    });
+    let router = router::build_router(app_state);
 
-    Ok(CrontabService { router })
+    Ok(CrontabService { router, persist })
 }
