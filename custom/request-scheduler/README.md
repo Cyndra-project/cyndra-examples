@@ -2,9 +2,9 @@
 
 A service that calls URLs at specified cron-style intervals.
 
-The service exposes a `/set-schedule` endpoint that accepts a schedule and a URL
-as form data and persists a job tuple `(schedule, url)` with `cyndra_persist` 
-between runs, e.g. will pick up existing jobs after being restarted.
+The service exposes a `/crontab/set` endpoint that accepts a schedule and a URL
+as form data and persists jobs with `cyndra_persist` between runs, e.g. it will 
+pick up existing jobs after being restarted.
 
 Internally, `CrontabService` implements a custom service with
 [`cyndra_runtime::Service`](https://docs.cyndra.rs/examples/custom-service),
@@ -16,10 +16,10 @@ jobs to a `CronRunner`.
 Run `cargo cyndra run` to spin up the service locally.
 
 Fire a POST request to the `set-schedule` URL to create a new cron job. Use 
-`request.sh` for a quick example or use the below snippet:
+the provided `request.sh` for a quick example or the below snippet:
 
 ```
 curl -v http://localhost:8000/crontab/set\
   -H "Content-Type: application/x-www-form-urlencoded"\
-  -d "schedule='*/2 * * * * *'&url='example.com'"
+  -d "schedule='*/2 * * * * *'&url='http://localhost:8000/trigger-me'"
 ```
