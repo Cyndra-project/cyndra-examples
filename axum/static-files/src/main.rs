@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 use axum::{routing::get, Router};
-use axum_extra::routing::SpaRouter;
+use tower_http::services::ServeDir;
 
 async fn hello_world() -> &'static str {
     "Hello, world!"
@@ -14,8 +14,8 @@ async fn axum(
     #[cyndra_static_folder::StaticFolder(folder = "assets")] static_folder: PathBuf,
 ) -> cyndra_axum::CyndraAxum {
     let router = Router::new()
-        .route("/hello", get(hello_world))
-        .merge(SpaRouter::new("/assets", static_folder).index_file("index.html"));
+        .route("/", get(hello_world))
+        .nest_service("/assets", ServeDir::new(static_folder));
 
     Ok(router.into())
 }
