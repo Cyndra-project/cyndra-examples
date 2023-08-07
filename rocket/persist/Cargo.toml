@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 rocket = { version = "0.5.0-rc.2", features = ["json"] }
 serde = { version = "1.0.148", features = ["derive"] }
-cyndra-persist = "0.22.0"
-cyndra-rocket = "0.22.0"
-cyndra-runtime = "0.22.0"
+cyndra-persist = "0.23.0"
+cyndra-rocket = "0.23.0"
+cyndra-runtime = "0.23.0"
 tokio = "1.26.0"

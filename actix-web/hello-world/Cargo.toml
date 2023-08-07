@@ -5,6 +5,6 @@ edition = "2021"
 
 [dependencies]
 actix-web = "4.3.1"
-cyndra-actix-web = "0.22.0"
-cyndra-runtime = "0.22.0"
+cyndra-actix-web = "0.23.0"
+cyndra-runtime = "0.23.0"
 tokio = "1.26.0"
