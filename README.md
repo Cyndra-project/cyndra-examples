@@ -112,3 +112,4 @@ FRAMEWORK | [NAME](LINK_TO_REPO) | DESCRIPTION | `cargo cyndra init --from USER/
 **Framework** | **Name & Link** | **Description** | **Command**
 --------------|-----------------|-------------|----------------
 Axum | [Test](https://github.com/cyndra-hq/cyndra-examples) | A test example A test example A test example | `cargo cyndra init --from <user>/<repo> --subfolder <path>`
+Axum/Any | [Fullstack Rust](https://github.com/TylerBloom/cyndra-fullstack-rust-example) | A basic project template for fullstack Rust projects | `cargo cyndra init --from TylerBloom/cyndra-fullstack-rust-example`
