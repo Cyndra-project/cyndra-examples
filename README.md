@@ -53,6 +53,7 @@ Actix Web | [hello-world](./actix-web/hello-world/) | Hello World | `cargo cyndr
 Actix Web | [postgres](./actix-web/postgres/) | TODO app with a Postgres DB | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/postgres`
 Actix Web | [websocket-actorless](./actix-web/websocket-actorless/) | Websocket app that checks the status of Cyndra's API | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/websocket-actorless`
 Axum | [hello-world](./axum/hello-world/) | Hello World | `cargo cyndra init --template axum`
+Axum | [metadata](./axum/metadata/) | Simple app that prints the service information such as Cyndra service name | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/metadata`
 Axum | [static-files](./axum/static-files/) | Hello World page that serves static HTML and JS files | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/static-files`
 Axum | [static-next-server](./axum/static-next-server/) | SPA server for serving a apps from frameworks such as Next.js | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/static-next-server`
 Axum | [websocket](./axum/websocket/) | Websocket app that checks the status of Cyndra's API | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/websocket`
