@@ -78,8 +78,7 @@ Thruster | [postgres](./thruster/postgres/) | TODO app with a Postgres DB | `car
 Tide | [hello-world](./tide/hello-world/) | Hello World | `cargo cyndra init --template tide`
 Tide | [postgres](./tide/postgres/) | TODO app with a Postgres DB | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder tide/postgres`
 Tower | [hello-world](./tower/hello-world/) | Hello World | `cargo cyndra init --template tower`
-Tracing | [custom-layer](./tracing/custom-layer/) | Custom tracing layer | `cargo cyndra init --template --from cyndra-hq/cyndra-examples --subfolder tracing/custom-layer`
-Tracing | [axum-logs-endpoint](./tracing/axum-logs-endpoint/) | Expose application logs with Axum | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder tracing/axum-logs-endpoint`
+Tracing | [custom-tracing-subscriber](./tracing/custom-tracing-subscriber/) | Hello world with a custom tracing setup | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder tracing/custom-tracing-subscriber`
 Warp | [hello-world](./warp/hello-world/) | Hello World | `cargo cyndra init --template warp`
 *Custom Service* | [none](./custom-service/none/) | Empty service - A barebones implementation of Cyndra Service trait that does nothing | `cargo cyndra init --template none`
 *Custom Service* | [request-scheduler](./custom-service/request-scheduler/) | A custom *Request Scheduler* service | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder custom-service/request-scheduler`
