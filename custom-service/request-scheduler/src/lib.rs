@@ -1,34 +1,3 @@
-//! Cyndra service integration for cron.
-//!
-//! ## Example
-//! Create a new `CrontabService` by providing a `cyndra_persist::PersistInstance`
-//! and an `axum::Router`
-//!
-//! ```rust,no_run
-//! use cyndra_crontab::{CrontabService, CyndraCrontab};
-//! use cyndra_persist::{Persist, PersistInstance};
-//!
-//! #[cyndra_runtime::main]
-//! async fn crontab(#[Persist] persist: PersistInstance) -> CyndraCrontab {
-//!     let router = Router::new().route("/trigger-me", get(|| async {
-//!       "Triggered by the crontab service".to_string()
-//!     }));
-//!     CrontabService::new(persist, router)
-//! }
-//! ```
-//!
-//! This will create an `axum::Service` with a cron runner mounted at `/crontab`.
-//! The `/crontab/set` endpoint accepts a schedule and a URL as form data and
-//! persists the cron job with `cyndra_persist` between runs.
-//!
-//! Call the endpoint with something like the following to set up a
-//!
-//!```
-//!curl -v http://localhost:8000/crontab/set\
-//!  -H "Content-Type: application/x-www-form-urlencoded"\
-//!  -d "schedule='*/2 * * * * *'&url='http://localhost:8000/trigger-me'"
-//!```
-//!
 use std::str::FromStr;
 use std::sync::Arc;
 
@@ -38,12 +7,12 @@ use cron::Schedule;
 use router::make_router;
 use serde::{Deserialize, Serialize};
 use cyndra_persist::PersistInstance;
-use cyndra_runtime::tracing::{debug, info};
 use tokio::{
     sync::mpsc::{self, Receiver, Sender},
     sync::oneshot,
     time::sleep,
 };
+use tracing::{debug, info};
 
 mod error;
 use error::CrontabServiceError;

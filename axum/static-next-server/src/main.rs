@@ -7,8 +7,7 @@ use axum_extra::routing::SpaRouter;
 async fn axum(
     #[cyndra_static_folder::StaticFolder] static_folder: PathBuf,
 ) -> cyndra_axum::CyndraAxum {
-    let router =
-        Router::new().merge(SpaRouter::new("/", static_folder).index_file("index.html"));
+    let router = Router::new().merge(SpaRouter::new("/", static_folder).index_file("index.html"));
 
     Ok(router.into())
 }

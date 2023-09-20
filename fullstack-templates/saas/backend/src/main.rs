@@ -97,5 +97,11 @@ fn grab_secrets(secrets: cyndra_secrets::SecretStore) -> (String, String, String
         .get("DOMAIN_URL")
         .unwrap_or_else(|| "None".to_string());
 
-    (stripe_key, stripe_sub_price, mailgun_key, mailgun_url, domain)
+    (
+        stripe_key,
+        stripe_sub_price,
+        mailgun_key,
+        mailgun_url,
+        domain,
+    )
 }

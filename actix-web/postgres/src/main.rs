@@ -6,7 +6,7 @@ use actix_web::{
 };
 use serde::{Deserialize, Serialize};
 use cyndra_actix_web::CyndraActixWeb;
-use cyndra_runtime::{CustomError};
+use cyndra_runtime::CustomError;
 use sqlx::{Executor, FromRow, PgPool};
 
 #[get("/{id}")]

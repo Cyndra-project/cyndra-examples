@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use cyndra_runtime::{CustomError};
+use cyndra_runtime::CustomError;
 use cyndra_tide::CyndraTide;
 use sqlx::{Executor, FromRow, PgPool};
 use tide::{Body, Request};
