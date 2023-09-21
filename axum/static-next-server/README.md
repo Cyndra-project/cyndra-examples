@@ -4,6 +4,6 @@ This example is a template for an [axum](https://github.com/tokio-rs/axum) serve
 
 ## Note
 
-This project misses the `static` NextJS bundle because it's common to not commit it to GitHub. This is done through a `.gitignore`, but Cyndra uses a `.ignore` file which waves the `.gitignore` rule. That's because otherwise Cyndra wouldn't package the `static` directory to be able to deploy it, because of the `.gitignore` filtering.
+This project misses the `static` NextJS bundle because it's common to not commit it to GitHub. This is done through a `.gitignore`, but Cyndra uses the assets list in `Cyndra.toml` file which waves the `.gitignore` rule. That's because otherwise Cyndra wouldn't package the `static` directory to be able to deploy it, because of the `.gitignore` filtering.
 
 As a result, building this project or trying to run it locally will fail because of the missing `static` folder.
