@@ -38,7 +38,7 @@ struct Response {
 }
 
 #[cyndra_runtime::main]
-async fn axum(#[cyndra_static_folder::StaticFolder] static_folder: PathBuf) -> CyndraAxum {
+async fn axum() -> CyndraAxum {
     let (tx, rx) = watch::channel(Message::Text("{}".to_string()));
 
     let state = Arc::new(Mutex::new(State {
@@ -75,7 +75,7 @@ async fn axum(#[cyndra_static_folder::StaticFolder] static_folder: PathBuf) -> C
 
     let router = Router::new()
         .route("/websocket", get(websocket_handler))
-        .nest_service("/", ServeDir::new(static_folder))
+        .nest_service("/", ServeDir::new(PathBuf::from("static")))
         .layer(Extension(state));
 
     Ok(router.into())
