@@ -55,9 +55,7 @@ async fn add(Json(todo): Json<Todo>, collection: Data<&Collection<Todo>>) -> Res
 }
 
 #[cyndra_runtime::main]
-async fn poem(
-    #[cyndra_shared_db::MongoDb] db: Database,
-) -> CyndraPoem<impl poem::Endpoint> {
+async fn poem(#[cyndra_shared_db::MongoDb] db: Database) -> CyndraPoem<impl poem::Endpoint> {
     let collection = db.collection::<Todo>("todos");
 
     let app = Route::new()

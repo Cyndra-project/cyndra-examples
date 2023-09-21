@@ -7,8 +7,8 @@ use poem::{
     EndpointExt, Result, Route,
 };
 use serde::{Deserialize, Serialize};
-use cyndra_runtime::CustomError;
 use cyndra_poem::CyndraPoem;
+use cyndra_runtime::CustomError;
 use sqlx::{Executor, FromRow, PgPool};
 
 #[handler]
@@ -34,9 +34,7 @@ async fn add(Json(data): Json<TodoNew>, state: Data<&PgPool>) -> Result<Json<Tod
 }
 
 #[cyndra_runtime::main]
-async fn poem(
-    #[cyndra_shared_db::Postgres] pool: PgPool,
-) -> CyndraPoem<impl poem::Endpoint> {
+async fn poem(#[cyndra_shared_db::Postgres] pool: PgPool) -> CyndraPoem<impl poem::Endpoint> {
     pool.execute(include_str!("../schema.sql"))
         .await
         .map_err(CustomError::new)?;

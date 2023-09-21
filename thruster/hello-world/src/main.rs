@@ -14,6 +14,6 @@ async fn thruster() -> cyndra_thruster::CyndraThruster<HyperServer<Ctx, ()>> {
     let server = HyperServer::new(
         App::<HyperRequest, Ctx, ()>::create(generate_context, ()).get("/", m![hello]),
     );
-    
+
     Ok(server.into())
 }
