@@ -5,7 +5,7 @@ async fn hello_world() -> &'static str {
 }
 
 #[cyndra_runtime::main]
-async fn axum() -> cyndra_axum::CyndraAxum {
+async fn main() -> cyndra_axum::CyndraAxum {
     let router = Router::new().route("/", get(hello_world));
 
     Ok(router.into())

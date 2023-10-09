@@ -14,21 +14,21 @@ To clone an example, use the init command of the [`cargo-cyndra`](https://docs.c
 
 ```bash
 cargo cyndra init --from https://github.com/cyndra-hq/cyndra-examples --subfolder axum/hello-world
-```
 
-You can also add `--name my-project-name` and the target path as arguments. Otherwise, they will be prompted for.
+### Other forms:
 
-The `--from` argument uses [cargo-generate](https://cargo-generate.github.io/cargo-generate/) internally, which means you can also use these forms:
-
-```bash
 # GitHub prefix. Change to 'gl:' or 'bb:' for GitLab or BitBucket
 cargo cyndra init --from gh:username/repository
 # Also GitHub
 cargo cyndra init --from username/repository
 
 # From local folder
-cargo cyndra init --from ../path/to/folder
+cargo cyndra init --from ./path/to/folder
+cargo cyndra init --from ../../another/folder
 cargo cyndra init --from /home/user/some/folder
+
+# Clone into 'my-folder', and use the project name 'my-project-name'
+cargo cyndra init --from username/repository --name my-project-name my-folder
 ```
 
 Then, you can navigate into the folder where it was created, and use these commands to run the example locally, and to deploy it.

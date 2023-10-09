@@ -1,6 +1,4 @@
 target/
-Cyndra.toml
-Secrets.toml
-Secrets.dev.toml
+Secrets*.toml
 test_sub.sh
 public/
