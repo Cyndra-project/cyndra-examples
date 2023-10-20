@@ -45,30 +45,34 @@ cargo cyndra deploy
 
 ## Official Examples
 
-This is a list of all examples maintained in this repostiory.
+This is a list of all examples maintained in this repository.
 
 **Framework** | **Name & Link** | **Description** | **Command**
 --------------|-----------------|-------------|----------------
 Actix Web | [hello-world](./actix-web/hello-world/) | Hello World | `cargo cyndra init --template actix-web`
 Actix Web | [postgres](./actix-web/postgres/) | TODO app with a Postgres DB | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/postgres`
+Actix Web | [static-files](./actix-web/static-files/) | Hello World page that serves static HTML and JS files | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/static-files`
 Actix Web | [websocket-actorless](./actix-web/websocket-actorless/) | Websocket app that checks the status of Cyndra's API | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/websocket-actorless`
+Actix Web | [cookie-authentication](./actix-web/cookie-authentication/) | Use JWT to authenticate API endpoints | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/cookie-authentication`
 Axum | [hello-world](./axum/hello-world/) | Hello World | `cargo cyndra init --template axum`
 Axum | [metadata](./axum/metadata/) | Simple app that prints the service information such as Cyndra service name | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/metadata`
 Axum | [static-files](./axum/static-files/) | Hello World page that serves static HTML and JS files | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/static-files`
 Axum | [static-next-server](./axum/static-next-server/) | SPA server for serving a apps from frameworks such as Next.js | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/static-next-server`
 Axum | [websocket](./axum/websocket/) | Websocket app that checks the status of Cyndra's API | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/websocket`
 Axum | [with-state](./axum/with-state/) | Hello World with example of how to utilize State in Axum | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/with-state`
+Axum | [jwt-authentication](./axum/jwt-authentication/) | Use JWT to authenticate API endpoints | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/jwt-authentication`
 Axum & Next.js | [saas](./fullstack-templates/saas/) | Competent opinionated fullstack web app with pre-made routes and assets | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder fullstack-templates/saas`
 Poem | [hello-world](./poem/hello-world/) | Hello World | `cargo cyndra init --template poem`
 Poem | [mongodb](./poem/mongodb/) | TODO app with MongoDB | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder poem/mongodb`
 Poem | [postgres](./poem/postgres/) | TODO app with a Postgres DB | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder poem/postgres`
 Poise | [hello-world](./poise/hello-world/) | Hello World Discord bot | `cargo cyndra init --template poise`
-Rocket | [authentication](./rocket/authentication/) | Use JWT to authenticate API endpoints | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/authentication`
+Rocket | [jwt-authentication](./rocket/jwt-authentication/) | Use JWT to authenticate API endpoints | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/jwt-authentication`
 Rocket | [dyn-templates](./rocket/dyn-templates/) | Handlebars dynamic templates | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/dyn-templates`
 Rocket | [hello-world](./rocket/hello-world/) | Hello World | `cargo cyndra init --template rocket`
 Rocket | [persist](./rocket/persist/) | Store weather data with Cyndra Persist | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/persist`
 Rocket | [postgres](./rocket/postgres/) | TODO app with a Postgres DB | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/postgres`
 Rocket | [secrets](./rocket/secrets/) | Extract secrets from your Secrets.toml file | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/secrets`
+Rocket | [static-files](./rocket/static-files/) | Hello World page that serves static HTML and JS files | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/static-files`
 Rocket | [url-shortener](./rocket/url-shortener/) | URL shortener with Postgres storage | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/url-shortener`
 Rocket | [workspace](./rocket/workspace/) | A cargo workspace where one crate is a Cyndra service | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/workspace`
 Salvo | [hello-world](./salvo/hello-world/) | Hello World | `cargo cyndra init --template salvo`
