@@ -117,3 +117,4 @@ FRAMEWORK | [NAME](LINK_TO_REPO) | DESCRIPTION | `cargo cyndra init --from USER/
 --------------|-----------------|-------------|----------------
 Axum/Any | [Fullstack Rust](https://github.com/TylerBloom/cyndra-fullstack-rust-example) | A basic project template for fullstack Rust projects | `cargo cyndra init --from TylerBloom/cyndra-fullstack-rust-example`
 Axum/Yew | [Web App with Yew](https://github.com/sentinel1909/cyndra-template-yew) | A basic project template for a web app using the Yew framework | `cargo cyndra init --from sentinel1909/cyndra-template-yew` |
+Actix Web | [Web API with Actix Web](https://github.com/sentinel1909/cyndra-template-actix) | A template for starting an API with Actix Web | `cargo cyndra init --from sentinel1909/cyndra-template-actix`
