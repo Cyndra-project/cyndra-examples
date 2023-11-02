@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 axum = "0.6.20"
-cyndra-axum = "0.30.0"
-cyndra-runtime = "0.30.0"
+cyndra-axum = "0.31.0"
+cyndra-runtime = "0.31.0"
 tokio = "1.28.2"
+tracing = "0.1.40"
