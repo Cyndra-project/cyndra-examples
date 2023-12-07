@@ -7,6 +7,6 @@ publish = false
 [dependencies]
 axum = "0.6.10"
 axum-extra = { version = "0.4.2", features = ["spa"] }
-cyndra-axum = "0.34.0"
-cyndra-runtime = "0.34.0"
+cyndra-axum = "0.35.0"
+cyndra-runtime = "0.35.0"
 tokio = "1.26.0"

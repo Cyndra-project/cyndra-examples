@@ -5,9 +5,9 @@ edition = "2021"
 
 [dependencies]
 actix-web = "4.3.1"
-cyndra-actix-web = "0.34.0"
-cyndra-runtime = "0.34.0"
+cyndra-actix-web = "0.35.0"
+cyndra-runtime = "0.35.0"
 serde = "1.0.148"
-cyndra-shared-db = { version = "0.34.0", features = ["postgres"] }
+cyndra-shared-db = { version = "0.35.0", features = ["postgres"] }
 sqlx = { version = "0.7.1", features = ["runtime-tokio-native-tls", "postgres"] }
 tokio = "1.26.0"
