@@ -5,9 +5,9 @@ edition = "2021"
 
 [dependencies]
 axum = "0.7.3"
-cyndra-axum = "0.35.0"
-cyndra-runtime = "0.35.0"
-cyndra-turso = "0.35.0"
+cyndra-axum = "0.36.0"
+cyndra-runtime = "0.36.0"
+cyndra-turso = "0.36.0"
 libsql-client = "0.31.0"
 tokio = "1.26.0"
 serde = { version = "1.0.164", features = ["derive"] }
