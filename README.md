@@ -56,6 +56,7 @@ Actix Web | [websocket-actorless](./actix-web/websocket-actorless/) | Websocket 
 Actix Web | [cookie-authentication](./actix-web/cookie-authentication/) | Use JWT to authenticate API endpoints | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/cookie-authentication`
 Axum | [hello-world](./axum/hello-world/) | Hello World | `cargo cyndra init --template axum`
 Axum | [metadata](./axum/metadata/) | Simple app that prints the service information such as Cyndra service name | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/metadata`
+Axum | [qdrant](./axum/qdrant/) | Barebones example of the cyndra-qdrant plugin | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/qdrant`
 Axum | [static-files](./axum/static-files/) | Hello World page that serves static HTML and JS files | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/static-files`
 Axum | [static-next-server](./axum/static-next-server/) | SPA server for serving a apps from frameworks such as Next.js | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/static-next-server`
 Axum | [websocket](./axum/websocket/) | Websocket app that checks the status of Cyndra's API | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder axum/websocket`
