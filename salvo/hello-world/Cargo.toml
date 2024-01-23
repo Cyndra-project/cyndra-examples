@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 salvo = "0.63.0"
-cyndra-salvo = "0.36.0"
-cyndra-runtime = "0.36.0"
+cyndra-salvo = "0.37.0"
+cyndra-runtime = "0.37.0"
 tokio = "1.26.0"
 
