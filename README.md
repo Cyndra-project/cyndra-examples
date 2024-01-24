@@ -86,6 +86,7 @@ Tower | [hello-world](./tower/hello-world/) | Hello World | `cargo cyndra init -
 Tracing | [custom-tracing-subscriber](./tracing/custom-tracing-subscriber/) | Hello world with a custom tracing setup | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder tracing/custom-tracing-subscriber`
 Warp | [hello-world](./warp/hello-world/) | Hello World | `cargo cyndra init --template warp`
 *Custom Service* | [none](./custom-service/none/) | Empty service - A barebones implementation of Cyndra Service trait that does nothing | `cargo cyndra init --template none`
+*Custom Service* | [cyndra-cron](./cyndra-cron/) | A custom service that runs a cron job server using Apalis | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder cyndra-cron`
 *Custom Service* | [request-scheduler](./custom-service/request-scheduler/) | A custom *Request Scheduler* service | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder custom-service/request-scheduler`
 *Custom Resource* | [pdo](./custom-resource/pdo/) | Custom Cyndra resource that holds a Plain Data Object (PDO), shown in the context of an Axum app | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder custom-resource/pdo`
 *Other* | [standalone-binary](./other/standalone-binary/) | How to split a project to allow it to run both with Cyndra and standalone | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder other/standalone-binary`
