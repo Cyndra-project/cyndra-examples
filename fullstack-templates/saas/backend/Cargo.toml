@@ -20,7 +20,7 @@ cyndra-axum = "0.38.0"
 cyndra-runtime = "0.38.0"
 cyndra-secrets = "0.38.0"
 cyndra-shared-db = { version = "0.38.0", features = ["postgres", "sqlx"] }
-sqlx = "0.7.1"
+sqlx = { version = "0.7.1", features = ["time"] }
 time = { version = "0.3.20", features = ["serde"] }
 tokio = "1.27.0"
 tower = "0.4.13"
