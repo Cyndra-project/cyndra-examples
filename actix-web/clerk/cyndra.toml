@@ -1,0 +1,4 @@
+name = "cyndra-actix-react-clerk"
+assets = [
+    "frontend/dist/*",
+]

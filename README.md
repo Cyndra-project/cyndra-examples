@@ -48,10 +48,11 @@ cargo cyndra deploy
 This is a list of all examples maintained in this repository.
 
 **Framework** | **Name & Link** | **Description** | **Command**
---------------|-----------------|-------------|----------------
+--------------|-----------------|-----------------|-------------
 Actix Web | [hello-world](./actix-web/hello-world/) | Hello World | `cargo cyndra init --template actix-web`
 Actix Web | [postgres](./actix-web/postgres/) | TODO app with a Postgres DB | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/postgres`
 Actix Web | [static-files](./actix-web/static-files/) | Hello World page that serves static HTML and JS files | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/static-files`
+Actix Web | [clerk](./actix-web/clerk/) | A React + Tailwind app that uses Clerk as an auth provider | `cargo cyndra init cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/clerk`
 Actix Web | [websocket-actorless](./actix-web/websocket-actorless/) | Websocket app that checks the status of Cyndra's API | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/websocket-actorless`
 Actix Web | [cookie-authentication](./actix-web/cookie-authentication/) | Use JWT to authenticate API endpoints | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder actix-web/cookie-authentication`
 Axum | [hello-world](./axum/hello-world/) | Hello World | `cargo cyndra init --template axum`
