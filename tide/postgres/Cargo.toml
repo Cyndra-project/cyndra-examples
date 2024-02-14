@@ -5,9 +5,9 @@ edition = "2021"
 
 [dependencies]
 serde = { version = "1.0.148", features = ["derive"] }
-cyndra-aws-rds = { version = "0.38.0", features = ["postgres", "sqlx"] }
-cyndra-runtime = "0.38.0"
-cyndra-tide = "0.38.0"
+cyndra-aws-rds = { version = "0.39.0", features = ["postgres", "sqlx"] }
+cyndra-runtime = "0.39.0"
+cyndra-tide = "0.39.0"
 sqlx = "0.7.1"
 tokio = "1.26.0"
 tide = "0.16.0"
