@@ -79,6 +79,7 @@ Rocket | [secrets](./rocket/secrets/) | Extract secrets from your Secrets.toml f
 Rocket | [static-files](./rocket/static-files/) | Hello World page that serves static HTML and JS files | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/static-files`
 Rocket | [url-shortener](./rocket/url-shortener/) | URL shortener with Postgres storage | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/url-shortener`
 Rocket | [workspace](./rocket/workspace/) | A cargo workspace where one crate is a Cyndra service | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/workspace`
+Rocket | [opendal-memory](./rocket/opendal-memory/) | app with an OpenDAL memory storage | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/opendal-memory`
 Salvo | [hello-world](./salvo/hello-world/) | Hello World | `cargo cyndra init --template salvo`
 Salvo | [image-rescaler](./salvo/image-rescaler/) | Hello World | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder salvo/image-rescaler`
 Serenity | [hello-world](./serenity/hello-world/) | Hello World Discord bot | `cargo cyndra init --template serenity`
