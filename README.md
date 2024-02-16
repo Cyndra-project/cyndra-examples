@@ -79,6 +79,7 @@ Rocket | [static-files](./rocket/static-files/) | Hello World page that serves s
 Rocket | [url-shortener](./rocket/url-shortener/) | URL shortener with Postgres storage | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/url-shortener`
 Rocket | [workspace](./rocket/workspace/) | A cargo workspace where one crate is a Cyndra service | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder rocket/workspace`
 Salvo | [hello-world](./salvo/hello-world/) | Hello World | `cargo cyndra init --template salvo`
+Salvo | [image-rescaler](./salvo/image-rescaler/) | Hello World | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder salvo/image-rescaler`
 Serenity | [hello-world](./serenity/hello-world/) | Hello World Discord bot | `cargo cyndra init --template serenity`
 Thruster | [hello-world](./thruster/hello-world/) | Hello World | `cargo cyndra init --template thruster`
 Thruster | [postgres](./thruster/postgres/) | TODO app with a Postgres DB | `cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder thruster/postgres`
