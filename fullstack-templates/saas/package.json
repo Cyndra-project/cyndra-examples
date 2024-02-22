@@ -9,7 +9,8 @@
     "build": "next build && cargo build",
     "cyndra-login": "cargo cyndra login",
     "full": "cargo cyndra run --port 8001",
-    "start": "cargo cyndra project start",
+    "start": "cargo cyndra project start --idle-minutes 0",
+    "restart": "cargo cyndra project restart --idle-minutes 0",
     "stop": "cargo cyndra project stop",
     "deploy": "npm run build && cargo cyndra deploy --allow-dirty",
     "lint": "next lint"
