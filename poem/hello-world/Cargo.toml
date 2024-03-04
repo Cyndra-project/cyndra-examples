@@ -5,6 +5,6 @@ edition = "2021"
 
 [dependencies]
 poem = "2.0.0"
-cyndra-poem = "0.39.0"
-cyndra-runtime = "0.39.0"
+cyndra-poem = "0.40.0"
+cyndra-runtime = "0.40.0"
 tokio = "1.26.0"
