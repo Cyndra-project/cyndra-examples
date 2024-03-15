@@ -7,7 +7,7 @@ use serenity::model::application::{CommandDataOptionValue, CommandOptionType, In
 use serenity::model::gateway::Ready;
 use serenity::model::id::GuildId;
 use serenity::prelude::*;
-use cyndra_secrets::SecretStore;
+use cyndra_runtime::SecretStore;
 use sqlx::{Executor, PgPool};
 use tracing::{error, info};
 
@@ -127,7 +127,7 @@ impl EventHandler for Bot {
 #[cyndra_runtime::main]
 async fn serenity(
     #[cyndra_shared_db::Postgres] pool: PgPool,
-    #[cyndra_secrets::Secrets] secret_store: SecretStore,
+    #[cyndra_runtime::Secrets] secret_store: SecretStore,
 ) -> cyndra_serenity::CyndraSerenity {
     // Get the discord token set in `Secrets.toml`
     let token = secret_store

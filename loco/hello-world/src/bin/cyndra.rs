@@ -4,11 +4,11 @@ use loco_rs::environment::Environment;
 
 #[cyndra_runtime::main]
 async fn main(
-    #[cyndra_metadata::CyndraMetadata] meta: cyndra_metadata::Metadata,
+    #[cyndra_runtime::Metadata] meta: cyndra_runtime::DeploymentMetadata,
 ) -> cyndra_axum::CyndraAxum {
     let environment = match meta.env {
-        cyndra_metadata::Environment::Local => Environment::Development,
-        cyndra_metadata::Environment::Deployment => Environment::Production,
+        cyndra_runtime::Environment::Local => Environment::Development,
+        cyndra_runtime::Environment::Deployment => Environment::Production,
     };
     let boot_result = create_app::<App>(StartMode::ServerOnly, &environment)
         .await

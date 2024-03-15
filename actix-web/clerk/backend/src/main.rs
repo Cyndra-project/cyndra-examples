@@ -12,7 +12,7 @@ use clerk_rs::{
 };
 use serde::{Deserialize, Serialize};
 use cyndra_actix_web::CyndraActixWeb;
-use cyndra_secrets::SecretStore;
+use cyndra_runtime::SecretStore;
 
 struct AppState {
     client: Clerk,
@@ -70,7 +70,7 @@ async fn get_user(state: web::Data<AppState>, req: HttpRequest) -> impl Responde
 
 #[cyndra_runtime::main]
 async fn main(
-    #[cyndra_secrets::Secrets] secrets: SecretStore,
+    #[cyndra_runtime::Secrets] secrets: SecretStore,
 ) -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
     let app_config = move |cfg: &mut ServiceConfig| {
         let clerk_secret_key = secrets
