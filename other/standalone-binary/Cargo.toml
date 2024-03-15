@@ -15,6 +15,6 @@ path = "src/bin/standalone.rs"
 [dependencies]
 axum = "0.7.3"
 dotenvy = "0.15.7"
-cyndra-axum = "0.41.0"
-cyndra-runtime = "0.41.0"
+cyndra-axum = "0.42.0"
+cyndra-runtime = "0.42.0"
 tokio = "1.28.2"
