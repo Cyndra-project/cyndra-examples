@@ -1,9 +1,9 @@
-use anyhow::anyhow;
+use anyhow::Context as _;
 use serenity::async_trait;
 use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
 use serenity::prelude::*;
-use cyndra_secrets::SecretStore;
+use cyndra_runtime::SecretStore;
 use tracing::{error, info};
 
 struct Bot;
@@ -25,14 +25,12 @@ impl EventHandler for Bot {
 
 #[cyndra_runtime::main]
 async fn serenity(
-    #[cyndra_secrets::Secrets] secret_store: SecretStore,
+    #[cyndra_runtime::Secrets] secrets: SecretStore,
 ) -> cyndra_serenity::CyndraSerenity {
     // Get the discord token set in `Secrets.toml`
-    let token = if let Some(token) = secret_store.get("DISCORD_TOKEN") {
-        token
-    } else {
-        return Err(anyhow!("'DISCORD_TOKEN' was not found").into());
-    };
+    let token = secrets
+        .get("DISCORD_TOKEN")
+        .context("'DISCORD_TOKEN' was not found")?;
 
     // Set gateway intents, which decides what events the bot will be notified about
     let intents = GatewayIntents::GUILD_MESSAGES | GatewayIntents::MESSAGE_CONTENT;

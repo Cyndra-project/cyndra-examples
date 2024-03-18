@@ -3,7 +3,7 @@ use axum_extra::extract::cookie::Key;
 use oauth2::{basic::BasicClient, AuthUrl, ClientId, ClientSecret, RedirectUrl, TokenUrl};
 use reqwest::Client;
 use routes::oauth;
-use cyndra_secrets::SecretStore;
+use cyndra_runtime::SecretStore;
 use sqlx::PgPool;
 pub mod routes;
 
@@ -24,7 +24,7 @@ impl FromRef<AppState> for Key {
 #[cyndra_runtime::main]
 async fn axum(
     #[cyndra_shared_db::Postgres] db: PgPool,
-    #[cyndra_secrets::Secrets] secrets: SecretStore,
+    #[cyndra_runtime::Secrets] secrets: SecretStore,
 ) -> cyndra_axum::CyndraAxum {
     sqlx::migrate!()
         .run(&db)

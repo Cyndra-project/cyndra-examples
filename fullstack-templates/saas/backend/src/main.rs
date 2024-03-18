@@ -35,7 +35,7 @@ impl FromRef<AppState> for Key {
 #[cyndra_runtime::main]
 async fn axum(
     #[cyndra_shared_db::Postgres] postgres: PgPool,
-    #[cyndra_secrets::Secrets] secrets: cyndra_secrets::SecretStore,
+    #[cyndra_runtime::Secrets] secrets: cyndra_runtime::SecretStore,
 ) -> cyndra_axum::CyndraAxum {
     sqlx::migrate!()
         .run(&postgres)
@@ -64,7 +64,7 @@ async fn axum(
     Ok(router.into())
 }
 
-fn grab_secrets(secrets: cyndra_secrets::SecretStore) -> (String, String, String, String, String) {
+fn grab_secrets(secrets: cyndra_runtime::SecretStore) -> (String, String, String, String, String) {
     let stripe_key = secrets
         .get("STRIPE_KEY")
         .unwrap_or_else(|| "None".to_string());

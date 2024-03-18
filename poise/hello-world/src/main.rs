@@ -1,6 +1,6 @@
 use anyhow::Context as _;
 use poise::serenity_prelude::{ClientBuilder, GatewayIntents};
-use cyndra_secrets::SecretStore;
+use cyndra_runtime::SecretStore;
 use cyndra_serenity::CyndraSerenity;
 
 struct Data {} // User data, which is stored and accessible in all command invocations
@@ -15,7 +15,7 @@ async fn hello(ctx: Context<'_>) -> Result<(), Error> {
 }
 
 #[cyndra_runtime::main]
-async fn main(#[cyndra_secrets::Secrets] secret_store: SecretStore) -> CyndraSerenity {
+async fn main(#[cyndra_runtime::Secrets] secret_store: SecretStore) -> CyndraSerenity {
     // Get the discord token set in `Secrets.toml`
     let discord_token = secret_store
         .get("DISCORD_TOKEN")

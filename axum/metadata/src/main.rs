@@ -1,9 +1,9 @@
 use axum::{routing::get, Router};
-use cyndra_metadata::Metadata;
+use cyndra_runtime::DeploymentMetadata;
 
 #[cyndra_runtime::main]
 async fn axum(
-    #[cyndra_metadata::CyndraMetadata] metadata: Metadata,
+    #[cyndra_runtime::Metadata] metadata: DeploymentMetadata,
 ) -> cyndra_axum::CyndraAxum {
     let router = Router::new().route("/", get(format!("{:?}", metadata)));
 
