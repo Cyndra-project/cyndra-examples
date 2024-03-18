@@ -28,7 +28,9 @@ async fn serenity(
     #[cyndra_runtime::Secrets] secrets: SecretStore,
 ) -> cyndra_serenity::CyndraSerenity {
     // Get the discord token set in `Secrets.toml`
-    let token = secrets.get("DISCORD_TOKEN").context("'DISCORD_TOKEN' was not found")?;
+    let token = secrets
+        .get("DISCORD_TOKEN")
+        .context("'DISCORD_TOKEN' was not found")?;
 
     // Set gateway intents, which decides what events the bot will be notified about
     let intents = GatewayIntents::GUILD_MESSAGES | GatewayIntents::MESSAGE_CONTENT;

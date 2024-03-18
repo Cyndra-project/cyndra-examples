@@ -8,7 +8,7 @@ use serenity::builder::{
 };
 use serenity::model::gateway::Ready;
 use serenity::prelude::*;
-use cyndra_secrets::SecretStore;
+use cyndra_runtime::SecretStore;
 use tracing::info;
 
 struct Bot {
@@ -87,7 +87,7 @@ impl EventHandler for Bot {
 
 #[cyndra_runtime::main]
 async fn serenity(
-    #[cyndra_secrets::Secrets] secret_store: SecretStore,
+    #[cyndra_runtime::Secrets] secret_store: SecretStore,
 ) -> cyndra_serenity::CyndraSerenity {
     // Get the discord token set in `Secrets.toml`
     let discord_token = secret_store

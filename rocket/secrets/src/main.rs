@@ -16,9 +16,7 @@ struct MyState {
 }
 
 #[cyndra_runtime::main]
-async fn rocket(
-    #[cyndra_runtime::Secrets] secrets: SecretStore,
-) -> cyndra_rocket::CyndraRocket {
+async fn rocket(#[cyndra_runtime::Secrets] secrets: SecretStore) -> cyndra_rocket::CyndraRocket {
     // get secret defined in `Secrets.toml` file.
     let secret = secrets.get("MY_API_KEY").context("secret was not found")?;
 
