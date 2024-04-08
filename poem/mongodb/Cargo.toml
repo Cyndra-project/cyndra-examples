@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 mongodb = "2.4.0"
-poem = "2.0.0"
+poem = "3.0.0"
 cyndra-poem = "0.43.0"
 cyndra-shared-db = { version = "0.43.0", features = ["mongodb"] }
 cyndra-runtime = "0.43.0"
