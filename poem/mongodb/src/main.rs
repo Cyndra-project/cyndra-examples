@@ -14,7 +14,6 @@ use cyndra_poem::CyndraPoem;
 
 struct ObjectIdGuard(ObjectId);
 
-#[poem::async_trait]
 impl<'a> FromRequest<'a> for ObjectIdGuard {
     async fn from_request(req: &'a Request, _body: &mut RequestBody) -> Result<Self> {
         let id = req.path_params::<String>()?;
