@@ -6,13 +6,13 @@ mod routes;
 mod templates;
 
 #[cyndra_runtime::main]
-async fn main(#[cyndra_shared_db::Postgres] db: PgPool) -> cyndra_axum::CyndraAxum {
+async fn main(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_axum::CyndraAxum {
     sqlx::migrate!()
-        .run(&db)
+        .run(&pool)
         .await
-        .expect("Looks like something went wrong with migrations :(");
+        .expect("Failed to run migrations");
 
-    let router = router::init_router(db);
+    let router = router::init_router(pool);
 
     Ok(router.into())
 }

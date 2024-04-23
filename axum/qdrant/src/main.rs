@@ -11,7 +11,7 @@ async fn list_collections(State(state): State<Arc<AppState>>) -> String {
 }
 
 #[cyndra_runtime::main]
-async fn axum(
+async fn main(
     #[cyndra_qdrant::Qdrant(cloud_url = "{secrets.CLOUD_URL}", api_key = "{secrets.API_KEY}")]
     qdrant: QdrantClient,
 ) -> cyndra_axum::CyndraAxum {

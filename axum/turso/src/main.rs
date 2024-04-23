@@ -40,7 +40,7 @@ async fn create_users(
 }
 
 #[cyndra_runtime::main]
-async fn axum(
+async fn main(
     #[cyndra_turso::Turso(addr = "libsql://your-db.turso.io", token = "{secrets.TURSO_DB_TOKEN}")]
     client: Database,
 ) -> cyndra_axum::CyndraAxum {

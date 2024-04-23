@@ -4,7 +4,7 @@ use cyndra_runtime::SecretStore;
 use multi_binary::build_router;
 
 #[cyndra_runtime::main]
-async fn axum(#[cyndra_runtime::Secrets] secret_store: SecretStore) -> CyndraAxum {
+async fn main(#[cyndra_runtime::Secrets] secret_store: SecretStore) -> CyndraAxum {
     // Get all resources 'the Cyndra way'
     let my_secret = secret_store.get("SOME_API_KEY").unwrap();
 

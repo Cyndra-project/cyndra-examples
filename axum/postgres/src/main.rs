@@ -6,7 +6,6 @@ use axum::{
     Json, Router,
 };
 use serde::{Deserialize, Serialize};
-use cyndra_runtime::CustomError;
 use sqlx::{FromRow, PgPool};
 
 async fn retrieve(
@@ -43,11 +42,11 @@ struct MyState {
 }
 
 #[cyndra_runtime::main]
-async fn axum(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_axum::CyndraAxum {
+async fn main(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_axum::CyndraAxum {
     sqlx::migrate!()
         .run(&pool)
         .await
-        .map_err(CustomError::new)?;
+        .expect("Failed to run migrations");
 
     let state = MyState { pool };
     let router = Router::new()

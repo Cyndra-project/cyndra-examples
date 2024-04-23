@@ -22,7 +22,7 @@ pub fn hello(name: &str) -> Template {
 }
 
 #[cyndra_runtime::main]
-async fn rocket() -> cyndra_rocket::CyndraRocket {
+async fn main() -> cyndra_rocket::CyndraRocket {
     let rocket = rocket::build()
         // If you also wish to serve static content, uncomment line below and corresponding 'use' on line 4
         // .mount("/", FileServer::from(relative!("templates")))

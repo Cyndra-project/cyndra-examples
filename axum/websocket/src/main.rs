@@ -36,7 +36,7 @@ struct Response {
 }
 
 #[cyndra_runtime::main]
-async fn axum() -> CyndraAxum {
+async fn main() -> CyndraAxum {
     let (tx, rx) = watch::channel(Message::Text("{}".to_string()));
 
     let state = Arc::new(Mutex::new(State {

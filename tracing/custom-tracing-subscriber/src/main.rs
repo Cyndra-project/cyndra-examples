@@ -11,7 +11,7 @@ async fn hello_world() -> &'static str {
 }
 
 #[cyndra_runtime::main]
-async fn actix_web() -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
+async fn main() -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
     // We need to write to stdout for Cyndra to record our logs, so we use the
     // tracing::fmt subscriber which has sane defaults for applications and also
     // writes to stdout.

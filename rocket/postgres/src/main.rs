@@ -38,7 +38,7 @@ struct MyState {
 }
 
 #[cyndra_runtime::main]
-async fn rocket(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_rocket::CyndraRocket {
+async fn main(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_rocket::CyndraRocket {
     pool.execute(include_str!("../schema.sql"))
         .await
         .map_err(CustomError::new)?;

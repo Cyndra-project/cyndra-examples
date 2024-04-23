@@ -14,7 +14,7 @@ pub async fn serve(mut path: PathBuf) -> Option<NamedFile> {
 }
 
 #[cyndra_runtime::main]
-async fn rocket() -> cyndra_rocket::CyndraRocket {
+async fn main() -> cyndra_rocket::CyndraRocket {
     let rocket = rocket::build().mount("/", rocket::routes![serve]);
 
     Ok(rocket.into())

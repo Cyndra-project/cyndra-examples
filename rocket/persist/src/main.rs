@@ -51,7 +51,7 @@ async fn retrieve(
 }
 
 #[cyndra_runtime::main]
-async fn rocket(
+async fn main(
     #[cyndra_persist::Persist] persist: PersistInstance,
 ) -> cyndra_rocket::CyndraRocket {
     let state = MyState { persist };

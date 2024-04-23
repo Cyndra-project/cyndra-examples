@@ -7,8 +7,6 @@ use rocket::{
     routes, State,
 };
 use serde::Serialize;
-use cyndra_runtime::CustomError;
-use sqlx::migrate::Migrator;
 use sqlx::{FromRow, PgPool};
 use url::Url;
 
@@ -68,11 +66,12 @@ async fn shorten(url: String, state: &State<AppState>) -> Result<String, status:
     Ok(format!("https://s.cyndraapp.rs/{id}"))
 }
 
-static MIGRATOR: Migrator = sqlx::migrate!();
-
 #[cyndra_runtime::main]
-async fn rocket(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_rocket::CyndraRocket {
-    MIGRATOR.run(&pool).await.map_err(CustomError::new)?;
+async fn main(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_rocket::CyndraRocket {
+    sqlx::migrate!()
+        .run(&pool)
+        .await
+        .expect("Failed to run migrations");
 
     let state = AppState { pool };
     let rocket = rocket::build()

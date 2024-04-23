@@ -39,7 +39,7 @@ async fn retrieve(path: String, state: &State<MyState>) -> Result<String, BadReq
 }
 
 #[cyndra_runtime::main]
-async fn rocket(
+async fn main(
     #[cyndra_opendal::Opendal(scheme = "memory")] storage: Operator,
 ) -> cyndra_rocket::CyndraRocket {
     let state = MyState { storage };

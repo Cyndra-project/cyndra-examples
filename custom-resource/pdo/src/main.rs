@@ -7,7 +7,7 @@ async fn hello_world(State(pdo): State<Arc<Pdo>>) -> String {
 }
 
 #[cyndra_runtime::main]
-async fn axum(#[Builder(field = "value")] pdo: Pdo) -> cyndra_axum::CyndraAxum {
+async fn main(#[Builder(field = "value")] pdo: Pdo) -> cyndra_axum::CyndraAxum {
     let state = Arc::new(pdo);
     let router = Router::new().route("/", get(hello_world)).with_state(state);
 

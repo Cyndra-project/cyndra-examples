@@ -1,16 +1,11 @@
-use actix_files::NamedFile;
-use actix_web::{get, web::ServiceConfig, Responder};
+use actix_files::Files;
+use actix_web::web::ServiceConfig;
 use cyndra_actix_web::CyndraActixWeb;
 
-#[get("/")]
-async fn index() -> impl Responder {
-    NamedFile::open_async("assets/index.html").await
-}
-
 #[cyndra_runtime::main]
-async fn actix_web() -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
+async fn main() -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
     let config = move |cfg: &mut ServiceConfig| {
-        cfg.service(index);
+        cfg.service(Files::new("/", "assets"));
     };
 
     Ok(config.into())

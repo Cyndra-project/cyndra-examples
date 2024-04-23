@@ -105,7 +105,7 @@ async fn index() -> impl Responder {
 }
 
 #[cyndra_runtime::main]
-async fn actix_web() -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
+async fn main() -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
     // We're going to use channels to communicate between threads.
     // api state channel
     let (tx_api_state, rx_api_state) = watch::channel(ApiStateMessage::default());
