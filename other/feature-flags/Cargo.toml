@@ -1,0 +1,17 @@
+[package]
+name = "cyndra-feature-flag"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+axum = "0.7.3"
+cyndra-axum = "0.45.0"
+cyndra-runtime = "0.45.0"
+
+[features]
+# Cyndra will disable default features and enable the feature "cyndra" if it exists.
+default = ["foo"]
+cyndra = ["bar"]
+foo = []
+bar = []
