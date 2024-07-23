@@ -1,10 +1,13 @@
 [package]
-name = "metadata"
+name = "cyndra-axum-openai"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+async-openai = "0.23.0"
 axum = "0.7.3"
+serde_json = "1"
 cyndra-axum = "0.47.0"
+cyndra-openai = "0.47.0"
 cyndra-runtime = "0.47.0"
-tokio = "1.28.2"
+tokio = "1.26.0"

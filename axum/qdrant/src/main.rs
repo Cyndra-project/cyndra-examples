@@ -1,9 +1,9 @@
 use axum::{extract::State, routing::get, Router};
-use qdrant_client::prelude::*;
+use qdrant_client::Qdrant;
 use std::sync::Arc;
 
 struct AppState {
-    qdrant: QdrantClient,
+    qdrant: Qdrant,
 }
 
 async fn list_collections(State(state): State<Arc<AppState>>) -> String {
@@ -13,7 +13,7 @@ async fn list_collections(State(state): State<Arc<AppState>>) -> String {
 #[cyndra_runtime::main]
 async fn main(
     #[cyndra_qdrant::Qdrant(cloud_url = "{secrets.CLOUD_URL}", api_key = "{secrets.API_KEY}")]
-    qdrant: QdrantClient,
+    qdrant: Qdrant,
 ) -> cyndra_axum::CyndraAxum {
     let state = Arc::new(AppState { qdrant });
 
