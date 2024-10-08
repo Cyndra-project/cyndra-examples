@@ -38,10 +38,10 @@ function executeCommand(command: string | string[], abortSignal?: AbortSignal): 
 
 let cyndraCliAvailable = false;
 
-// Function to check if cargo cyndra is installed
+// Function to check if cyndra is installed
 function checkCyndraCli(): Promise<void> {
     return new Promise((resolve, reject) => {
-        exec('cargo cyndra --version', (error, stdout, _stderr) => {
+        exec('cyndra --version', (error, stdout, _stderr) => {
             if (error) {
                 console.error(`Cyndra check failed: ${error}`);
                 return reject(error);
@@ -53,13 +53,13 @@ function checkCyndraCli(): Promise<void> {
     });
 }
 
-// Check for cargo cyndra once at the start
+// Check for cyndra once at the start
 (async () => {
     try {
-        console.log('Checking for cargo cyndra...');
+        console.log('Checking for cyndra CLI...');
         await checkCyndraCli();
     } catch (error) {
-        console.error('Failed to check cargo cyndra:', error);
+        console.error('Failed to check cyndra CLI:', error);
         cyndraCliAvailable = false;
     }
 })();
@@ -108,9 +108,9 @@ export default defineConfig({
             // Routine that is executed when file changes are detected
             onChange: async ({abortSignal}) => {
                 if (cyndraCliAvailable) {
-                    await executeCommand(['cargo', 'cyndra', 'run'], abortSignal);
+                    await executeCommand(['cyndra', 'run'], abortSignal);
                 } else {
-                    console.error('Cyndra not available, skipping cargo cyndra run');
+                    console.error('Cyndra not available, skipping cyndra run');
                 }
             },
             // Retry a task if it fails. Otherwise, watch program will throw an error if trigger fails.
