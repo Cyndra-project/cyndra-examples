@@ -26,7 +26,7 @@ users will be able to view their customers, sales records as well as some analyt
 - Initialize the template with:
 
     ```sh
-    cargo cyndra init --from cyndra-hq/cyndra-examples --subfolder fullstack-templates/saas
+    cyndra init --from cyndra-hq/cyndra-examples --subfolder fullstack-templates/saas
     ```
 
 - cd into the folder
@@ -61,4 +61,4 @@ users will be able to view their customers, sales records as well as some analyt
   like [psql](https://www.postgresql.org/docs/current/app-psql.html) or [pgAdmin](https://www.pgadmin.org/).
 - If connecting to external services like Stripe doesn't work, try checking your Secrets.toml file.
 - Cyndra connects by default to port 8000 - if you're currently already using something at port 8000, you can add
-  the `--port <port-number>` to the `cargo cyndra run` command to change this.
+  the `--port <port-number>` to the `cyndra run` command to change this.
