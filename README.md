@@ -15,7 +15,7 @@ cyndra init --from https://github.com/cyndra-hq/cyndra-examples --subfolder axum
 
 # GitHub prefix. Change to 'gl:' or 'bb:' for GitLab or BitBucket
 cyndra init --from gh:username/repository
-# Also GitHub
+# By default, 'gh:' (GitHub) is assumed
 cyndra init --from username/repository
 
 # From local folder
