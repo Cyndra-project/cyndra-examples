@@ -6,7 +6,7 @@ The examples in this repository, consists of *"Hello, world!"* examples of all o
 
 ## How to clone, run and deploy an example
 
-To clone an example, use the `init` command of the [`cargo-cyndra`](https://docs.cyndra.rs/introduction/installation) CLI and specify the git URL and optional subfolder:
+To clone an example, use the `init` command of the [CLI](https://docs.cyndra.dev/getting-started/installation) and specify the git URL and optional subfolder:
 
 ```bash
 cyndra init --from https://github.com/cyndra-hq/cyndra-examples --subfolder axum/hello-world
