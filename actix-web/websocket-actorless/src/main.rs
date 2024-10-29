@@ -15,7 +15,7 @@ use std::{
 use tokio::sync::{mpsc, watch};
 
 const PAUSE_SECS: u64 = 15;
-const STATUS_URI: &str = "https://api.cyndra.rs";
+const STATUS_URI: &str = "https://api.cyndra.dev/.healthz";
 
 type AppState = (
     mpsc::UnboundedSender<WsState>,
@@ -191,5 +191,5 @@ async fn main() -> CyndraActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone
 
 async fn get_api_status(client: &reqwest::Client) -> bool {
     let response = client.get(STATUS_URI).send().await;
-    response.is_ok()
+    response.is_ok_and(|r| r.status().is_success())
 }
