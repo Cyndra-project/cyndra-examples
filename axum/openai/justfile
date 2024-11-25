@@ -1,0 +1,19 @@
+up:
+    cyndra run
+
+fe:
+    npm --prefix ./frontend run dev
+
+build:
+    npm --prefix ./frontend run build
+
+deploy:
+    build
+    cyndra deploy
+
+deploy-ad:
+    build
+    cyndra deploy --ad
+
+test:
+    hurl hurl/register.hurl --verbose
