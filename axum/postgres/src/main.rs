@@ -42,7 +42,7 @@ struct MyState {
 }
 
 #[cyndra_runtime::main]
-async fn main(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_axum::CyndraAxum {
+async fn main(#[cyndra_aws_rds::Postgres] pool: PgPool) -> cyndra_axum::CyndraAxum {
     sqlx::migrate!()
         .run(&pool)
         .await
@@ -53,7 +53,6 @@ async fn main(#[cyndra_shared_db::Postgres] pool: PgPool) -> cyndra_axum::Cyndra
         .route("/todos", post(add))
         .route("/todos/:id", get(retrieve))
         .with_state(state);
-
     Ok(router.into())
 }
 
