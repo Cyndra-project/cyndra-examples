@@ -7,7 +7,7 @@ edition = "2021"
 async-trait = "0.1.56"
 axum = "0.7.3"
 serde = { version = "1", features = ["derive"] }
-cyndra-service = "0.50.0"
-cyndra-axum = { version = "0.50.0", default-features = false, features = ["axum-0-7"] }
-cyndra-runtime = "0.50.0"
+cyndra-service = "0.51.0"
+cyndra-axum = { version = "0.51.0", default-features = false, features = ["axum-0-7"] }
+cyndra-runtime = "0.51.0"
 tokio = "1.28.2"

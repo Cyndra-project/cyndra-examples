@@ -5,9 +5,9 @@ edition = "2021"
 
 [dependencies]
 axum = "0.7.3"
-cyndra-axum = { version = "0.50.0", default-features = false, features = ["axum-0-7"] }
-cyndra-runtime = "0.50.0"
-cyndra-turso = "0.50.0"
+cyndra-axum = { version = "0.51.0", default-features = false, features = ["axum-0-7"] }
+cyndra-runtime = "0.51.0"
+cyndra-turso = "0.51.0"
 libsql = "0.6.0"
 tokio = "1.26.0"
 serde = { version = "1.0.164", features = ["derive"] }
