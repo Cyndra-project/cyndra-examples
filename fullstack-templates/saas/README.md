@@ -17,9 +17,9 @@ users will be able to view their customers, sales records as well as some analyt
 ## Pre-requisites
 
 - Rust
-- Node.js/NPM.
-- Typescript.
-- [cargo-cyndra](https://www.cyndra.rs)
+- Node.js/NPM
+- Typescript
+- Cyndra CLI
 
 ## Instructions for Usage
 
