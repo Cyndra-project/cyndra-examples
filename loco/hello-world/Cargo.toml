@@ -13,8 +13,8 @@ default-run = "hello_world-cli"
 loco-rs = { version = "0.14.0", default-features = false }
 
 [dependencies]
-cyndra-axum = "0.53.0"
-cyndra-runtime = { version = "0.53.0", default-features = false }
+cyndra-axum = "0.54.0"
+cyndra-runtime = { version = "0.54.0", default-features = false }
 
 loco-rs = { workspace = true , features = ["cli"] }
 serde = { version = "1", features = ["derive"] }
