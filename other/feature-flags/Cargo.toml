@@ -6,8 +6,8 @@ publish = false
 
 [dependencies]
 axum = "0.7.3"
-cyndra-axum = { version = "0.54.0", default-features = false, features = ["axum-0-7"] }
-cyndra-runtime = "0.54.0"
+cyndra-axum = { version = "0.55.0", default-features = false, features = ["axum-0-7"] }
+cyndra-runtime = "0.55.0"
 
 [features]
 # Cyndra will disable default features and enable the feature "cyndra" if it exists.
